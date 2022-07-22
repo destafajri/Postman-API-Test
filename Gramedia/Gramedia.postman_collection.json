@@ -25,7 +25,6 @@
 									"    pm.expect(jsonData[0].title).to.eql(\"Buku-Buku Terpopuler\");\r",
 									"    pm.expect(jsonData[1].title).to.eql(\"Novel Paling Laris\");\r",
 									"    pm.expect(jsonData[2].title).to.eql(\"Voucher Edukasi\");\r",
-									"    pm.expect(jsonData.length).to.eq(3);\r",
 									"});\r",
 									"\r",
 									"pm.test(\"Body matches string Voucher Edukasi\", function () {\r",
