@@ -1,0 +1,84 @@
+{
+	"info": {
+		"_postman_id": "f8e68328-1bbd-4604-b3d1-908556b8e9ab",
+		"name": "Gramedia eCommerce Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2170211"
+	},
+	"item": [
+		{
+			"name": "Authentications",
+			"item": []
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.gramedia.com/api/products/v3/meta_info/jujutsu-kaisen-05/",
+							"protocol": "https",
+							"host": [
+								"www",
+								"gramedia",
+								"com"
+							],
+							"path": [
+								"api",
+								"products",
+								"v3",
+								"meta_info",
+								"jujutsu-kaisen-05",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "Get Charts",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{JWT_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://www.gramedia.com/api/user/cart/?version_type=V2",
+							"protocol": "https",
+							"host": [
+								"www",
+								"gramedia",
+								"com"
+							],
+							"path": [
+								"api",
+								"user",
+								"cart",
+								""
+							],
+							"query": [
+								{
+									"key": "version_type",
+									"value": "V2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
