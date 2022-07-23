@@ -17,9 +17,19 @@
 							{
 								"key": "Authorization",
 								"value": "{{GRAMEDIA_TOKEN}}",
-								"type": "text"
+								"type": "text",
+								"disabled": true
 							}
 						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"desta\",\r\n    \"lastName\": \"\",\r\n    \"email\": \"destafajri@gmail.com\",\r\n    \"verified\": true,\r\n    \"accountType\": \"individual\",\r\n    \"phoneNumber\": \"\",\r\n    \"username\": \"destafajri\",\r\n    \"isSocialLogin\": false,\r\n    \"isSubscribed\": true,\r\n    \"gender\": \"\",\r\n    \"birthDate\": \"\",\r\n    \"favouriteCategory\": [],\r\n    \"occupation\": \"\",\r\n    \"hobby\": [],\r\n    \"registrationDate\": \"2022-07-22T17:08:59.190916+00:00\",\r\n    \"corporatePartner\": {\r\n        \"logo\": \"\",\r\n        \"description\": \"\",\r\n        \"nik\": \"\"\r\n    },\r\n    \"myvalue\": {\r\n        \"id\": \"\",\r\n        \"point\": 0\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "https://www.gramedia.com/api/auth/register/",
 							"protocol": "https",
@@ -33,6 +43,46 @@
 								"auth",
 								"register",
 								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{AUTH_TOKEN}}",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "https://www.gramedia.com/sign-up",
+							"protocol": "https",
+							"host": [
+								"www",
+								"gramedia",
+								"com"
+							],
+							"path": [
+								"sign-up"
 							]
 						}
 					},
@@ -79,6 +129,20 @@
 			"item": [
 				{
 					"name": "Get Cart",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "GET",
 						"header": [
@@ -89,7 +153,42 @@
 							}
 						],
 						"url": {
-							"raw": "https://www.gramedia.com/api/user/cart/?version_type=V2&",
+							"raw": "https://www.gramedia.com/api/user/cart/?version_type=V2",
+							"protocol": "https",
+							"host": [
+								"www",
+								"gramedia",
+								"com"
+							],
+							"path": [
+								"api",
+								"user",
+								"cart",
+								""
+							],
+							"query": [
+								{
+									"key": "version_type",
+									"value": "V2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Single Cart",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{AUTH_TOKEN}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://www.gramedia.com/api/user/cart/?version_type=V2&/1",
 							"protocol": "https",
 							"host": [
 								"www",
@@ -108,7 +207,7 @@
 									"value": "V2"
 								},
 								{
-									"key": "",
+									"key": "/1",
 									"value": null
 								}
 							]
